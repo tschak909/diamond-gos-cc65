@@ -81,3 +81,11 @@ void gos_moveicon(unsigned char icon_num, unsigned char x, unsigned char y);
  * @param icon_num Icon # (0-31)
  */
 void gos_removeicon(unsigned char icon_num);
+
+/**
+ * @brief Changes the shape of an existing icon (used to animate
+ *        icons e.g. the disk drives on Diamond DeskTop)
+ * @param icon_num icon Number (0-31)
+ * @param buf Pointer to bitmap buffer.
+ */
+void gos_shapeicon(unsigned char icon_num, void *buf);

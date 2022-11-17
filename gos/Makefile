@@ -7,12 +7,13 @@ MKDIR=mkdir
 
 .PHONY: clean
 
-all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o
+all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
 	$(AR) r $(LIB) obj/gos_paraprnt.o
 	$(AR) r $(LIB) obj/gos_togglezero.o
+	$(AR) r $(LIB) obj/gos_installicon.o
 
 obj:
 	$(MKDIR) -p obj
@@ -35,6 +36,10 @@ gos_paraprnt.o:
 gos_togglezero.o:
 	$(CC) -oobj/gos_togglezero.s gos_togglezero.c
 	$(AS) -oobj/gos_togglezero.o obj/gos_togglezero.s
+
+gos_installicon.o:
+	$(CC) -oobj/gos_installicon.s gos_installicon.c
+	$(AS) -oobj/gos_installicon.o obj/gos_installicon.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

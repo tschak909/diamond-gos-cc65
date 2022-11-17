@@ -9,7 +9,7 @@ MKDIR=mkdir
 
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
 	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
-	gos_mouseoff.o
+	gos_mouseoff.o gos_defmouse.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -24,6 +24,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_menuenable.o
 	$(AR) r $(LIB) obj/gos_mouseon.o
 	$(AR) r $(LIB) obj/gos_mouseoff.o
+	$(AR) r $(LIB) obj/gos_defmouse.o
 
 
 obj:
@@ -83,6 +84,10 @@ gos_mouseon.o:
 gos_mouseoff.o:
 	$(CC) -oobj/gos_mouseoff.s gos_mouseoff.c
 	$(AS) -oobj/gos_mouseoff.o obj/gos_mouseoff.s
+
+gos_defmouse.o:
+	$(CC) -oobj/gos_defmouse.s gos_defmouse.c
+	$(AS) -oobj/gos_defmouse.o obj/gos_defmouse.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

@@ -8,7 +8,7 @@ MKDIR=mkdir
 .PHONY: clean
 
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
-	gos_removeicon.o gos_shapeicon.o
+	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -18,6 +18,8 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_moveicon.o
 	$(AR) r $(LIB) obj/gos_removeicon.o
 	$(AR) r $(LIB) obj/gos_shapeicon.o
+	$(AR) r $(LIB) obj/gos_setmenu.o
+	$(AR) r $(LIB) obj/gos_menucheck.o
 
 obj:
 	$(MKDIR) -p obj
@@ -56,6 +58,14 @@ gos_removeicon.o:
 gos_shapeicon.o:
 	$(CC) -oobj/gos_shapeicon.s gos_shapeicon.c
 	$(AS) -oobj/gos_shapeicon.o obj/gos_shapeicon.s
+
+gos_setmenu.o:
+	$(CC) -oobj/gos_setmenu.s gos_setmenu.c
+	$(AS) -oobj/gos_setmenu.o obj/gos_setmenu.s
+
+gos_menucheck.o:
+	$(CC) -oobj/gos_menucheck.s gos_menucheck.c
+	$(AS) -oobj/gos_menucheck.o obj/gos_menucheck.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

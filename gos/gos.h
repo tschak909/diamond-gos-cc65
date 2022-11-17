@@ -117,3 +117,12 @@ void gos_menuenable(unsigned char menu_number, unsigned char menu_item, unsigned
  * @brief Turn mo use cursor/arrow on
  */
 void gos_mouseon(void);
+
+/**
+ * @brief Creates a dialog box.
+ * @param w Width of Dialog Box (0-39)
+ * @param h Height of dialog box (0-191)
+ * @param objects Pointer to object list
+ * @param areas Pointer to touch areas
+ */
+void gos_dodialog(unsigned char w, unsigned char h, void *objects, void *areas);

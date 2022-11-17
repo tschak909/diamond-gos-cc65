@@ -126,3 +126,9 @@ void gos_mouseon(void);
  * @param areas Pointer to touch areas
  */
 void gos_dodialog(unsigned char w, unsigned char h, void *objects, void *areas);
+
+/**
+ * @brief Creates a dialog box.
+ * @param objects Pointer to object list
+ */
+void gos_updatedialog(void *objects);

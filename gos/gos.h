@@ -104,3 +104,11 @@ void gos_setmenu(void* menu_bar, void* menu_trees);
  * @param c character to insert (0=Blank, 8=Check)
  */
 void gos_menucheck(unsigned char menu_number, unsigned char menu_item, unsigned char c);
+
+/**
+ * @brief Enable or disable a menu item.
+ * @param menu_number (0-7)
+ * @param menu_item (1-22)
+ * @param e 0=enable 1=disable
+ */
+void gos_menuenable(unsigned char menu_number, unsigned char menu_item, unsigned char e);

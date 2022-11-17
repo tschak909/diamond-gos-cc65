@@ -8,7 +8,7 @@ MKDIR=mkdir
 .PHONY: clean
 
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
-	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o
+	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -20,6 +20,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_shapeicon.o
 	$(AR) r $(LIB) obj/gos_setmenu.o
 	$(AR) r $(LIB) obj/gos_menucheck.o
+	$(AR) r $(LIB) obj/gos_menuenable.o
 
 obj:
 	$(MKDIR) -p obj
@@ -66,6 +67,10 @@ gos_setmenu.o:
 gos_menucheck.o:
 	$(CC) -oobj/gos_menucheck.s gos_menucheck.c
 	$(AS) -oobj/gos_menucheck.o obj/gos_menucheck.s
+
+gos_menuenable.o:
+	$(CC) -oobj/gos_menuenable.s gos_menuenable.c
+	$(AS) -oobj/gos_menuenable.o obj/gos_menuenable.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

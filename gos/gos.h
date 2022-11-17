@@ -201,3 +201,9 @@ void gos_windclose(void);
  * @param y New Y position
  */
 void gos_windmove(unsigned char x, unsigned char y);
+
+/**
+ * @brief Draws objects in a window, and updates the window subtitle.
+ * @param objects Pointer to object tree
+ */
+void gos_winddraw(void *objects);

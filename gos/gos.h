@@ -68,3 +68,16 @@ void gos_paraprnt(unsigned short x,
  */
 void gos_togglezero(void);
 
+/**
+ * @brief Move an existing icon to another position on screen
+ * @param icon_num Icon number (0-31)
+ * @param x New X position (0-39)
+ * @param y New Y position (0-191)
+ */
+void gos_moveicon(unsigned char icon_num, unsigned char x, unsigned char y);
+
+/**
+ * @brief Removes an icon that has been installed
+ * @param icon_num Icon # (0-31)
+ */
+void gos_removeicon(unsigned char icon_num);

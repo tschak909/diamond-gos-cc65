@@ -10,7 +10,7 @@ MKDIR=mkdir
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
 	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
 	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o gos_eventdialog.o gos_releasedialog.o \
-	gos_textdialog.o
+	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -31,6 +31,9 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_eventdialog.o
 	$(AR) r $(LIB) obj/gos_releasedialog.o
 	$(AR) r $(LIB) obj/gos_textdialog.o
+	$(AR) r $(LIB) obj/gos_windopen.o
+	$(AR) r $(LIB) obj/gos_windclose.o
+	$(AR) r $(LIB) obj/gos_windmove.o
 
 obj:
 	$(MKDIR) -p obj
@@ -113,6 +116,18 @@ gos_releasedialog.o:
 gos_textdialog.o:
 	$(CC) -oobj/gos_textdialog.s gos_textdialog.c
 	$(AS) -oobj/gos_textdialog.o obj/gos_textdialog.s
+
+gos_windopen.o:
+	$(CC) -oobj/gos_windopen.s gos_windopen.c
+	$(AS) -oobj/gos_windopen.o obj/gos_windopen.s
+
+gos_windclose.o:
+	$(CC) -oobj/gos_windclose.s gos_windclose.c
+	$(AS) -oobj/gos_windclose.o obj/gos_windclose.s
+
+gos_windmove.o:
+	$(CC) -oobj/gos_windmove.s gos_windmove.c
+	$(AS) -oobj/gos_windmove.o obj/gos_windmove.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

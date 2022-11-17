@@ -164,3 +164,40 @@ void gos_textdialog(unsigned char maxlen,
 		    void *f,
 		    void *e);
 
+/**
+ * @brief opens a window.
+ * @param caps Window Characteristics: 1 = sizer, 2 = horizontal, 4 = vertical scroller, 8 = drag, 16 = fuller
+ * @param x X coordinate of window (0-39)
+ * @param y Y coordinate of window (0-191)
+ * @param w width of window (0-39)
+ * @param h height of window (0-191)
+ * @param b Buffer flag (0 = no, 1 = buffering)
+ * @param t pointer to title string (ending with 0xFF byte)
+ * @param s pointer to subtitle string (ending with 0xFF byte)
+ * @param sw Actual Width of Window
+ * @param sh Actual Height of Window
+ * @param a double word address of buffer
+ */
+void gos_windopen(unsigned char caps,
+		  unsigned char x,
+		  unsigned char y,
+		  unsigned char w,
+		  unsigned char h,
+		  unsigned char b,
+		  void *t,
+		  void *s,
+		  unsigned short sw,
+		  unsigned short sh,
+		  unsigned long a);
+
+/**
+ * @brief close the active window.
+ */
+void gos_windclose(void);
+
+/**
+ * @brief Moves the active window to a new position
+ * @param x New X position
+ * @param y New Y position
+ */
+void gos_windmove(unsigned char x, unsigned char y);

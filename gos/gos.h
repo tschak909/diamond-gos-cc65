@@ -112,3 +112,8 @@ void gos_menucheck(unsigned char menu_number, unsigned char menu_item, unsigned 
  * @param e 0=enable 1=disable
  */
 void gos_menuenable(unsigned char menu_number, unsigned char menu_item, unsigned char e);
+
+/**
+ * @brief Turn mo use cursor/arrow on
+ */
+void gos_mouseon(void);

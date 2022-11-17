@@ -8,7 +8,8 @@ MKDIR=mkdir
 .PHONY: clean
 
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
-	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o
+	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
+	gos_mouseoff.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -21,6 +22,9 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_setmenu.o
 	$(AR) r $(LIB) obj/gos_menucheck.o
 	$(AR) r $(LIB) obj/gos_menuenable.o
+	$(AR) r $(LIB) obj/gos_mouseon.o
+	$(AR) r $(LIB) obj/gos_mouseoff.o
+
 
 obj:
 	$(MKDIR) -p obj
@@ -71,6 +75,14 @@ gos_menucheck.o:
 gos_menuenable.o:
 	$(CC) -oobj/gos_menuenable.s gos_menuenable.c
 	$(AS) -oobj/gos_menuenable.o obj/gos_menuenable.s
+
+gos_mouseon.o:
+	$(CC) -oobj/gos_mouseon.s gos_mouseon.c
+	$(AS) -oobj/gos_mouseon.o obj/gos_mouseon.s
+
+gos_mouseoff.o:
+	$(CC) -oobj/gos_mouseoff.s gos_mouseoff.c
+	$(AS) -oobj/gos_mouseoff.o obj/gos_mouseoff.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

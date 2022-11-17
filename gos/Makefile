@@ -9,7 +9,7 @@ MKDIR=mkdir
 
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
 	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
-	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o
+	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o gos_eventdialog.o gos_releasedialog.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -27,6 +27,8 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_defmouse.o
 	$(AR) r $(LIB) obj/gos_dodialog.o
 	$(AR) r $(LIB) obj/gos_updatedialog.o
+	$(AR) r $(LIB) obj/gos_eventdialog.o
+	$(AR) r $(LIB) obj/gos_releasedialog.o
 
 obj:
 	$(MKDIR) -p obj
@@ -97,6 +99,14 @@ gos_dodialog.o:
 gos_updatedialog.o:
 	$(CC) -oobj/gos_updatedialog.s gos_updatedialog.c
 	$(AS) -oobj/gos_updatedialog.o obj/gos_updatedialog.s
+
+gos_eventdialog.o:
+	$(CC) -oobj/gos_eventdialog.s gos_eventdialog.c
+	$(AS) -oobj/gos_eventdialog.o obj/gos_eventdialog.s
+
+gos_releasedialog.o:
+	$(CC) -oobj/gos_releasedialog.s gos_releasedialog.c
+	$(AS) -oobj/gos_releasedialog.o obj/gos_releasedialog.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

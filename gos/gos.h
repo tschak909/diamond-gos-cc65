@@ -132,3 +132,14 @@ void gos_dodialog(unsigned char w, unsigned char h, void *objects, void *areas);
  * @param objects Pointer to object list
  */
 void gos_updatedialog(void *objects);
+
+/**
+ * @brief Waits for an event to occur in a Dialog Box, blocks.
+ * @return 16-bit value where mm|tt mm = # of mouse clicks, tt = touch area affected.
+ */
+unsigned short gos_eventdialog(void);
+
+/**
+ * @brief Terminates usage of the current dialog box.
+ */
+void gos_releasedialog(void);

@@ -10,7 +10,7 @@ MKDIR=mkdir
 all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_installicon.o gos_moveicon.o \
 	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
 	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o gos_eventdialog.o gos_releasedialog.o \
-	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o gos_winddraw.o
+	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o gos_winddraw.o gos_plotpoint.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -35,6 +35,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_windclose.o
 	$(AR) r $(LIB) obj/gos_windmove.o
 	$(AR) r $(LIB) obj/gos_winddraw.o
+	$(AR) r $(LIB) obj/gos_plotpoint.o
 
 obj:
 	$(MKDIR) -p obj
@@ -133,6 +134,10 @@ gos_windmove.o:
 gos_winddraw.o:
 	$(CC) -oobj/gos_winddraw.s gos_winddraw.c
 	$(AS) -oobj/gos_winddraw.o obj/gos_winddraw.s
+
+gos_plotpoint.o:
+	$(CC) -oobj/gos_plotpoint.s gos_plotpoint.c
+	$(AS) -oobj/gos_plotpoint.o obj/gos_plotpoint.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

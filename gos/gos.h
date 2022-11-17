@@ -62,3 +62,9 @@ void gos_paraprnt(unsigned short x,
 		  unsigned char yo,
 		  unsigned char ls,
 		  char *s);
+
+/**
+ * @brief Swap Diamond's buffer with built-in buffer.
+ */
+void gos_togglezero(void);
+

@@ -405,3 +405,12 @@ void gos_sysdraw(unsigned char x, unsigned char y, unsigned char st, void *s);
 void gos_dragbox(unsigned char x, unsigned char y, unsigned char w, unsigned char h,
 		 unsigned char *nx, unsigned char *ny, unsigned char *mx, unsigned char *my);
 
+/**
+ * @brief Inquires about overlapping icon on an area of the screen
+ * @param x1 position
+ * @param y1 position
+ * @param x2 position
+ * @param y2 position
+ * @return overlapping window # (0 = none)
+ */
+unsigned char gos_overlapicon(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2);

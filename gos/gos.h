@@ -340,4 +340,9 @@ void gos_cursoroff(void);
  */
 void gos_defcursor(unsigned char b, unsigned char h, unsigned char f);
 
-
+/**
+ * @brief Moves Diamond's cursor to a new position on screen.
+ * @param x new position
+ * @param y new position
+ */
+void gos_movecursor(unsigned char x, unsigned char y);

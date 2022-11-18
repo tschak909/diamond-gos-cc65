@@ -13,7 +13,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o gos_winddraw.o gos_plotpoint.o \
 	gos_plotline.o gos_plotbox.o gos_movetoscreen.o gos_movefromscreen.o gos_clearscreen.o \
 	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o gos_cursoron.o gos_cursoroff.o \
-	gos_defcursor.o
+	gos_defcursor.o gos_movecursor.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -51,6 +51,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_cursoron.o
 	$(AR) r $(LIB) obj/gos_cursoroff.o
 	$(AR) r $(LIB) obj/gos_defcursor.o
+	$(AR) r $(LIB) obj/gos_movecursor.o
 
 obj:
 	$(MKDIR) -p obj
@@ -201,6 +202,10 @@ gos_cursoroff.o:
 gos_defcursor.o:
 	$(CC) -oobj/gos_defcursor.s gos_defcursor.c
 	$(AS) -oobj/gos_defcursor.o obj/gos_defcursor.s
+
+gos_movecursor.o:
+	$(CC) -oobj/gos_movecursor.s gos_movecursor.c
+	$(AS) -oobj/gos_movecursor.o obj/gos_movecursor.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

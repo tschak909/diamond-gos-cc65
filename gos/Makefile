@@ -14,7 +14,8 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_plotline.o gos_plotbox.o gos_movetoscreen.o gos_movefromscreen.o gos_clearscreen.o \
 	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o gos_cursoron.o gos_cursoroff.o \
 	gos_defcursor.o gos_movecursor.o gos_multiply.o gos_divide.o gos_swapscreen.o gos_windclear.o \
-	gos_windget.o gos_sysdraw.o gos_dragbox.o gos_overlapicon.o gos_overlapwindow.o gos_execdesktop.o
+	gos_windget.o gos_sysdraw.o gos_dragbox.o gos_overlapicon.o gos_overlapwindow.o gos_execdesktop.o \
+	gos_inverttouch.o gos_windset.o gos_windtitle.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -63,6 +64,9 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_overlapicon.o
 	$(AR) r $(LIB) obj/gos_overlapwindow.o
 	$(AR) r $(LIB) obj/gos_execdesktop.o
+	$(AR) r $(LIB) obj/gos_inverttouch.o
+	$(AR) r $(LIB) obj/gos_windset.o
+	$(AR) r $(LIB) obj/gos_windtitle.o
 
 obj:
 	$(MKDIR) -p obj
@@ -257,6 +261,18 @@ gos_overlapwindow.o:
 gos_execdesktop.o:
 	$(CC) -oobj/gos_execdesktop.s gos_execdesktop.c
 	$(AS) -oobj/gos_execdesktop.o obj/gos_execdesktop.s
+
+gos_inverttouch.o:
+	$(CC) -oobj/gos_inverttouch.s gos_inverttouch.c
+	$(AS) -oobj/gos_inverttouch.o obj/gos_inverttouch.s
+
+gos_windset.o:
+	$(CC) -oobj/gos_windset.s gos_windset.c
+	$(AS) -oobj/gos_windset.o obj/gos_windset.s
+
+gos_windtitle.o:
+	$(CC) -oobj/gos_windtitle.s gos_windtitle.c
+	$(AS) -oobj/gos_windtitle.o obj/gos_windtitle.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

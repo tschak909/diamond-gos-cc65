@@ -419,3 +419,22 @@ unsigned char gos_overlapicon(unsigned char x1, unsigned char y1, unsigned char 
  * @brief Makes a legal exit to the Diamond GOS desktop.
  */
 void gos_execdesktop(void);
+
+/**
+ * @brief Invert a touch area in a dialog box
+ * @param touch_area (touch area number)
+ */
+void gos_inverttouch(unsigned char touch_area);
+
+/**
+ * @brief Sets a new actual width/height for the top window.
+ * @param x new actual width
+ * @param y new actual height
+ */
+void gos_windset(unsigned short x, unsigned short y);
+
+/**
+ * @brief redraws window title
+ * @param c Fill character (0=blank, 10=shaded)
+ */
+void gos_windtitle(unsigned short c);

@@ -16,7 +16,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_defcursor.o gos_movecursor.o gos_multiply.o gos_divide.o gos_swapscreen.o gos_windclear.o \
 	gos_windget.o gos_sysdraw.o gos_dragbox.o gos_overlapicon.o gos_overlapwindow.o gos_execdesktop.o \
 	gos_inverttouch.o gos_windset.o gos_windtitle.o gos_windactivate.o gos_binload.o gos_mul40.o \
-	gos_fillscreen.o gos_fileselect.o
+	gos_fillscreen.o gos_fileselect.o gos_messagebox.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -73,6 +73,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_mul40.o
 	$(AR) r $(LIB) obj/gos_fillscreen.o
 	$(AR) r $(LIB) obj/gos_fileselect.o
+	$(AR) r $(LIB) obj/gos_messagebox.o
 
 obj:
 	$(MKDIR) -p obj
@@ -299,6 +300,10 @@ gos_fillscreen.o:
 gos_fileselect.o:
 	$(CC) -oobj/gos_fileselect.s gos_fileselect.c
 	$(AS) -oobj/gos_fileselect.o obj/gos_fileselect.s
+
+gos_messagebox.o:
+	$(CC) -oobj/gos_messagebox.s gos_messagebox.c
+	$(AS) -oobj/gos_messagebox.o obj/gos_messagebox.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

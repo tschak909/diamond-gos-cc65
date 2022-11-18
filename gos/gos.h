@@ -290,3 +290,14 @@ unsigned char gos_clearscreen(unsigned char x,
 			      unsigned char cy,
 			      unsigned char xo,
 			      unsigned char yo);
+
+/**
+ * @brief Turn mo use cursor/arrow on
+ * @param a Source address
+ * @param b Destination address
+ * @param n Number of bytes to move
+ * @return 0xFF if an error occurred.
+ */
+unsigned char gos_move(unsigned long a,
+		       unsigned long b,
+		       unsigned short n);

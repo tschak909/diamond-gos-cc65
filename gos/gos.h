@@ -383,3 +383,9 @@ unsigned char gos_swapscreen(unsigned long a,
 			     unsigned char cy,
 			     unsigned char xo,
 			     unsigned char yo);
+
+/**
+ * @brief Inquires about the top (active) window's actual position on screen, and relative viewing position in the actual window space.
+ * @return X position, Y position, relative X position, relative Y position.
+ */
+void gos_windget(unsigned char *x, unsigned char *y, unsigned short *rx, unsigned short *ry);

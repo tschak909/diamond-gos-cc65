@@ -9,7 +9,11 @@
 #include "gos.h"
 
 /**
- * @brief Turn mo use cursor/arrow on
+ * @brief Create a drag box for dragging objects
+ * @param x position (0-39)
+ * @param y position (0-191)
+ * @param w width of box
+ * @param h height of box
  */
 void gos_dragbox(unsigned char x, unsigned char y, unsigned char w, unsigned char h,
 		 unsigned char *nx, unsigned char *ny, unsigned char *mx, unsigned char *my)

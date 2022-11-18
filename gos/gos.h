@@ -224,4 +224,24 @@ void gos_plotline(unsigned char x1,
 		  unsigned char c,
 		  unsigned char m);
 
-
+/**
+ * @brief Moves a block image from memory onto the screen
+ * @param a Address of image data
+ * @param x position
+ * @param y position
+ * @param w width
+ * @param h height 
+ * @param cx Clipping value X
+ * @param cy Clipping value Y
+ * @param xo X offset
+ * @param yo Y offset
+ */
+void gos_movetoscreen(unsigned long a,
+		      unsigned char x,
+		      unsigned char y,
+		      unsigned char w,
+		      unsigned char h,
+		      unsigned char cx,
+		      unsigned char cy,
+		      unsigned char xo,
+		      unsigned char yo);

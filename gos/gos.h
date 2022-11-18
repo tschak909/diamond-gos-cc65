@@ -389,3 +389,12 @@ unsigned char gos_swapscreen(unsigned long a,
  * @return X position, Y position, relative X position, relative Y position.
  */
 void gos_windget(unsigned char *x, unsigned char *y, unsigned short *rx, unsigned short *ry);
+
+/**
+ * @brief Turn mo use cursor/arrow on
+ * @param x position
+ * @param y position
+ * @param st Style
+ * @param s pointer to text buffer terminated with 0xFF.
+ */
+void gos_sysdraw(unsigned char x, unsigned char y, unsigned char st, void *s);

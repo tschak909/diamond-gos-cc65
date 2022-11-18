@@ -474,3 +474,14 @@ unsigned short gos_mul40(unsigned char x, unsigned char y);
  * @param yo Y offset
  */
 unsigned char gos_fillscreen(unsigned long a, unsigned short p, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char xc, unsigned char yc, unsigned char xo, unsigned char yo);
+
+/**
+ * @brief Call our file selector routine allowing the user to select a file and have that returned to the calling program.
+ * @param ext pointer to extender to match files for (EOL terminated)
+ * @param def pointer to default filename (EOL terminated)
+ * @param title pointer to title string for dialog (0xFF terminated)
+ * @param filename pointer to filename buffer
+ * @param directory pointer to directory to open
+ * @return pointer to filename
+ */
+char* gos_fileselect(char *ext, char *def, char *title, char *filename, char *directory);

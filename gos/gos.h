@@ -444,3 +444,10 @@ void gos_windtitle(unsigned short c);
  * @param w Window number (0-3)
  */
 void gos_windactivate(unsigned short w);
+
+/**
+ * @brief Loads (and executes) a binary file.
+ * @param d Disable flag (0=diamond app, 1=disable diamond)
+ * @param s pointer to EOL terminated filename
+ */
+void gos_binload(unsigned char d, void *s);

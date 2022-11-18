@@ -207,3 +207,21 @@ void gos_windmove(unsigned char x, unsigned char y);
  * @param objects Pointer to object tree
  */
 void gos_winddraw(void *objects);
+
+/**
+ * @brief Plots a line on the screen
+ * @param x1 Beginning X position (0-39)
+ * @param y1 Beginning Y position (0-191)
+ * @param x2 Ending X position (0-39)
+ * @param y2 Ending Y position (0-191)
+ * @param c Color (0-3)
+ * @param m Mode (0=normal, 1=XOR)
+ */
+void gos_plotline(unsigned char x1,
+		  unsigned char y1,
+		  unsigned char x2,
+		  unsigned char y2,
+		  unsigned char c,
+		  unsigned char m);
+
+

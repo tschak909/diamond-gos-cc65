@@ -321,3 +321,14 @@ unsigned char gos_zero(unsigned long b,
 unsigned char gos_swap(unsigned long a,
 		       unsigned long b,
 		       unsigned short n);
+
+/**
+ * @brief Turn cursor on
+ */
+void gos_cursoron(void);
+
+/**
+ * @brief Turn cursor on
+ */
+void gos_cursoroff(void);
+

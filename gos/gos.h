@@ -27,6 +27,58 @@
 #define B7 (*(unsigned char *)0x97)
 
 /**
+ * @var SCREENX - Mouse cursor X position, 0-159
+ */ 
+#define SCREENX (*(unsigned char *)0x9A80)
+
+/**
+ * @var SCREENX - Mouse cursor X position, 0-191
+ */ 
+#define SCREENY (*(unsigned char *)0x9A81)
+
+/**
+ * @var CLICK - Number of mouse clicks registered 0 = none, 1=dragged, 2 = single, 3 = double
+ */
+#define CLICK (*(unsigned char *)0x9A82)
+
+/**
+ * @var ACTIVE - Mouse active status, 0 = active, 1 = not active
+ */
+#define ACTIVE (*(unsigned char *)0x9A83)
+
+/**
+ * @var BACKBUF - 32-bit pointer to back buffer
+ */
+#define BACKBUF (*(unsigned long *)0x9A84)
+
+/**
+ * @var TOTALRAM - 32 bit value containing total RAM
+ */
+#define TOTALRAM (*(unsigned long *)0x9A88)
+
+/**
+ * @var SYSPTR - Double word that contains address of first byte of extra memory.
+ */
+#define SYSPTR (*(unsigned long *)0x9A8C)
+
+/** 
+ * @var CLICKTIME - Time in 60ths of a second that it takes to register a click vs a drag. Values in range from 12 to 20
+ */
+#define CLICKTIME (*(unsigned long *)0x9A90)
+
+/**
+ * @var PORT - The current input device port 0 or 1
+ */
+#define PORT (*(unsigned char *)0x9A91)
+
+/**
+ * @var INTERRUPTS - Status of NMIs.
+ */
+#define INTERRUPTS (*(unsigned char *)0x9A92)
+
+
+
+/**
  * @brief call GOS with Function #
  * @param funcno Function #
  */

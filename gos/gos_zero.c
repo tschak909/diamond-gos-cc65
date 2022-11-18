@@ -9,22 +9,20 @@
 #include "gos.h"
 
 /**
- * @brief Move a block of memory to another.
- * @param a Source address
- * @param b Destination address
- * @param n Number of bytes to move
+ * @brief Zero a block of memory
+ * @param b Address to zero
+ * @param n Number of bytes to zero
  * @return 0xFF if an error occurred.
  */
-unsigned char gos_move(unsigned long a,
-		       unsigned long b,
+unsigned char gos_zero(unsigned long b,
 		       unsigned short n)
 {
-  W0=a&0xFFFF;
-  W1=a>>16;
+  W0=0x2020;
+  W1=0x2020;
   W2=b&0xFFFF;
   W3=b>>16;
   W4=n;
-  gos(31);
+  gos(32);
 
   return B7;
 }

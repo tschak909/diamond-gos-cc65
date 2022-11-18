@@ -301,3 +301,23 @@ unsigned char gos_clearscreen(unsigned char x,
 unsigned char gos_move(unsigned long a,
 		       unsigned long b,
 		       unsigned short n);
+
+/**
+ * @brief Zero a block of memory
+ * @param b Address to zero
+ * @param n Number of bytes to zero
+ * @return 0xFF if an error occurred.
+ */
+unsigned char gos_zero(unsigned long b,
+		       unsigned short n);
+
+/**
+ * @brief Swap a block of memory with another.
+ * @param a Source address
+ * @param b Destination address
+ * @param n Number of bytes to swap
+ * @return 0xFF if an error occurred.
+ */
+unsigned char gos_swap(unsigned long a,
+		       unsigned long b,
+		       unsigned short n);

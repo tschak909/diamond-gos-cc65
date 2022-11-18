@@ -12,7 +12,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o gos_eventdialog.o gos_releasedialog.o \
 	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o gos_winddraw.o gos_plotpoint.o \
 	gos_plotline.o gos_plotbox.o gos_movetoscreen.o gos_movefromscreen.o gos_clearscreen.o \
-	gos_invertscreen.o gos_move.o
+	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -45,6 +45,9 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_clearscreen.o
 	$(AR) r $(LIB) obj/gos_invertscreen.o
 	$(AR) r $(LIB) obj/gos_move.o
+	$(AR) r $(LIB) obj/gos_zero.o
+	$(AR) r $(LIB) obj/gos_swap.o
+
 
 obj:
 	$(MKDIR) -p obj
@@ -175,6 +178,14 @@ gos_invertscreen.o:
 gos_move.o:
 	$(CC) -oobj/gos_move.s gos_move.c
 	$(AS) -oobj/gos_move.o obj/gos_move.s
+
+gos_zero.o:
+	$(CC) -oobj/gos_zero.s gos_zero.c
+	$(AS) -oobj/gos_zero.o obj/gos_zero.s
+
+gos_swap.o:
+	$(CC) -oobj/gos_swap.s gos_swap.c
+	$(AS) -oobj/gos_swap.o obj/gos_swap.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

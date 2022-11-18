@@ -414,3 +414,8 @@ void gos_dragbox(unsigned char x, unsigned char y, unsigned char w, unsigned cha
  * @return overlapping window # (0 = none)
  */
 unsigned char gos_overlapicon(unsigned char x1, unsigned char y1, unsigned char x2, unsigned char y2);
+
+/**
+ * @brief Makes a legal exit to the Diamond GOS desktop.
+ */
+void gos_execdesktop(void);

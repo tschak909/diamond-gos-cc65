@@ -15,7 +15,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o gos_cursoron.o gos_cursoroff.o \
 	gos_defcursor.o gos_movecursor.o gos_multiply.o gos_divide.o gos_swapscreen.o gos_windclear.o \
 	gos_windget.o gos_sysdraw.o gos_dragbox.o gos_overlapicon.o gos_overlapwindow.o gos_execdesktop.o \
-	gos_inverttouch.o gos_windset.o gos_windtitle.o
+	gos_inverttouch.o gos_windset.o gos_windtitle.o gos_windactivate.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -67,6 +67,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_inverttouch.o
 	$(AR) r $(LIB) obj/gos_windset.o
 	$(AR) r $(LIB) obj/gos_windtitle.o
+	$(AR) r $(LIB) obj/gos_windactivate.o
 
 obj:
 	$(MKDIR) -p obj
@@ -273,6 +274,10 @@ gos_windset.o:
 gos_windtitle.o:
 	$(CC) -oobj/gos_windtitle.s gos_windtitle.c
 	$(AS) -oobj/gos_windtitle.o obj/gos_windtitle.s
+
+gos_windactivate.o:
+	$(CC) -oobj/gos_windactivate.s gos_windactivate.c
+	$(AS) -oobj/gos_windactivate.o obj/gos_windactivate.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

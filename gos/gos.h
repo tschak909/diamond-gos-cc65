@@ -438,3 +438,9 @@ void gos_windset(unsigned short x, unsigned short y);
  * @param c Fill character (0=blank, 10=shaded)
  */
 void gos_windtitle(unsigned short c);
+
+/**
+ * @brief Sets a new actual width/height for the top window.
+ * @param w Window number (0-3)
+ */
+void gos_windactivate(unsigned short w);

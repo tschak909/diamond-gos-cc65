@@ -11,7 +11,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_removeicon.o gos_shapeicon.o gos_setmenu.o gos_menucheck.o gos_menuenable.o gos_mouseon.o \
 	gos_mouseoff.o gos_defmouse.o gos_dodialog.o gos_updatedialog.o gos_eventdialog.o gos_releasedialog.o \
 	gos_textdialog.o gos_windopen.o gos_windclose.o gos_windmove.o gos_winddraw.o gos_plotpoint.o \
-	gos_plotline.o gos_plotbox.o gos_movetoscreen.o
+	gos_plotline.o gos_plotbox.o gos_movetoscreen.o gos_movefromscreen.o gos_clearscreen.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -40,6 +40,8 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_plotline.o
 	$(AR) r $(LIB) obj/gos_plotbox.o
 	$(AR) r $(LIB) obj/gos_movetoscreen.o
+	$(AR) r $(LIB) obj/gos_movefromscreen.o
+	$(AR) r $(LIB) obj/gos_clearscreen.o
 
 obj:
 	$(MKDIR) -p obj
@@ -154,6 +156,14 @@ gos_plotbox.o:
 gos_movetoscreen.o:
 	$(CC) -oobj/gos_movetoscreen.s gos_movetoscreen.c
 	$(AS) -oobj/gos_movetoscreen.o obj/gos_movetoscreen.s
+
+gos_movefromscreen.o:
+	$(CC) -oobj/gos_movefromscreen.s gos_movefromscreen.c
+	$(AS) -oobj/gos_movefromscreen.o obj/gos_movefromscreen.s
+
+gos_clearscreen.o:
+	$(CC) -oobj/gos_clearscreen.s gos_clearscreen.c
+	$(AS) -oobj/gos_clearscreen.o obj/gos_clearscreen.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

@@ -246,3 +246,47 @@ unsigned char gos_movetoscreen(unsigned long a,
 			       unsigned char cy,
 			       unsigned char xo,
 			       unsigned char yo);
+
+/**
+ * @brief Moves a block image from screen into memory
+ * @param a Address of image data
+ * @param x position
+ * @param y position
+ * @param w width
+ * @param h height 
+ * @param cx Clipping value X
+ * @param cy Clipping value Y
+ * @param xo X offset
+ * @param yo Y offset
+ * @return $FF means error occurred.
+ */
+unsigned char gos_movefromscreen(unsigned long a,
+				 unsigned char x,
+				 unsigned char y,
+				 unsigned char w,
+				 unsigned char h,
+				 unsigned char cx,
+				 unsigned char cy,
+				 unsigned char xo,
+				 unsigned char yo);
+
+/**
+ * @brief Clears an area on screen
+ * @param x position
+ * @param y position
+ * @param w width
+ * @param h height 
+ * @param cx Clipping value X
+ * @param cy Clipping value Y
+ * @param xo X offset
+ * @param yo Y offset
+ * @return $FF means error occurred.
+ */
+unsigned char gos_clearscreen(unsigned char x,
+			      unsigned char y,
+			      unsigned char w,
+			      unsigned char h,
+			      unsigned char cx,
+			      unsigned char cy,
+			      unsigned char xo,
+			      unsigned char yo);

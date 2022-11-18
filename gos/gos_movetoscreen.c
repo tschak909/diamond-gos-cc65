@@ -19,16 +19,17 @@
  * @param cy Clipping value Y
  * @param xo X offset
  * @param yo Y offset
+ * @return $FF means error occurred.
  */
-void gos_movetoscreen(unsigned long a,
-		      unsigned char x,
-		      unsigned char y,
-		      unsigned char w,
-		      unsigned char h,
-		      unsigned char cx,
-		      unsigned char cy,
-		      unsigned char xo,
-		      unsigned char yo)
+unsigned char gos_movetoscreen(unsigned long a,
+			       unsigned char x,
+			       unsigned char y,
+			       unsigned char w,
+			       unsigned char h,
+			       unsigned char cx,
+			       unsigned char cy,
+			       unsigned char xo,
+			       unsigned char yo)
 {
   W0=a&0xFFFF;
   W1=a >> 16;
@@ -41,4 +42,6 @@ void gos_movetoscreen(unsigned long a,
   B6=xo;
   B7=yo;
   gos(27);
+  
+  return B7;
 }

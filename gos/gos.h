@@ -235,13 +235,14 @@ void gos_plotline(unsigned char x1,
  * @param cy Clipping value Y
  * @param xo X offset
  * @param yo Y offset
+ * @return $FF means error occurred
  */
-void gos_movetoscreen(unsigned long a,
-		      unsigned char x,
-		      unsigned char y,
-		      unsigned char w,
-		      unsigned char h,
-		      unsigned char cx,
-		      unsigned char cy,
-		      unsigned char xo,
-		      unsigned char yo);
+unsigned char gos_movetoscreen(unsigned long a,
+			       unsigned char x,
+			       unsigned char y,
+			       unsigned char w,
+			       unsigned char h,
+			       unsigned char cx,
+			       unsigned char cy,
+			       unsigned char xo,
+			       unsigned char yo);

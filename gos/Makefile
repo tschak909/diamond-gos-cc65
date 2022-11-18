@@ -15,7 +15,8 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o gos_cursoron.o gos_cursoroff.o \
 	gos_defcursor.o gos_movecursor.o gos_multiply.o gos_divide.o gos_swapscreen.o gos_windclear.o \
 	gos_windget.o gos_sysdraw.o gos_dragbox.o gos_overlapicon.o gos_overlapwindow.o gos_execdesktop.o \
-	gos_inverttouch.o gos_windset.o gos_windtitle.o gos_windactivate.o gos_binload.o gos_mul40.o
+	gos_inverttouch.o gos_windset.o gos_windtitle.o gos_windactivate.o gos_binload.o gos_mul40.o \
+	gos_fillscreen.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -70,6 +71,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_windactivate.o
 	$(AR) r $(LIB) obj/gos_binload.o
 	$(AR) r $(LIB) obj/gos_mul40.o
+	$(AR) r $(LIB) obj/gos_fillscreen.o
 
 obj:
 	$(MKDIR) -p obj
@@ -288,6 +290,10 @@ gos_binload.o:
 gos_mul40.o:
 	$(CC) -oobj/gos_mul40.s gos_mul40.c
 	$(AS) -oobj/gos_mul40.o obj/gos_mul40.s
+
+gos_fillscreen.o:
+	$(CC) -oobj/gos_fillscreen.s gos_fillscreen.c
+	$(AS) -oobj/gos_fillscreen.o obj/gos_fillscreen.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

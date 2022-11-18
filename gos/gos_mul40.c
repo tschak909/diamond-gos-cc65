@@ -12,8 +12,9 @@
  * @brief Quickly calculate the address of position on screen.
  * @param x position
  * @param y position
+ * @return address
  */
-void gos_mul40(unsigned char x, unsigned char y)
+unsigned short gos_mul40(unsigned char x, unsigned char y)
 {
   B6=x;
   B7=y;

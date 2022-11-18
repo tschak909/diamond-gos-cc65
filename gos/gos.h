@@ -456,5 +456,21 @@ void gos_binload(unsigned char d, void *s);
  * @brief Quickly calculate the address of position on screen.
  * @param x position
  * @param y position
+ * @return address
  */
-void gos_mul40(unsigned char x, unsigned char y);
+unsigned short gos_mul40(unsigned char x, unsigned char y);
+
+/**
+ * @brief Fills an area on screen with given bit pattern
+ * @param a Address of image data
+ * @param p Fill pattern (low byte only)
+ * @param x position
+ * @param y position
+ * @param w width
+ * @param h height
+ * @param xc Clipping value X
+ * @param yc Clipping Value y
+ * @param xo X offset
+ * @param yo Y offset
+ */
+unsigned char gos_fillscreen(unsigned long a, unsigned short p, unsigned char x, unsigned char y, unsigned char w, unsigned char h, unsigned char xc, unsigned char yc, unsigned char xo, unsigned char yo);

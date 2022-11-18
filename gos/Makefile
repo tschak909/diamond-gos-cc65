@@ -14,7 +14,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	gos_plotline.o gos_plotbox.o gos_movetoscreen.o gos_movefromscreen.o gos_clearscreen.o \
 	gos_invertscreen.o gos_move.o gos_zero.o gos_swap.o gos_cursoron.o gos_cursoroff.o \
 	gos_defcursor.o gos_movecursor.o gos_multiply.o gos_divide.o gos_swapscreen.o gos_windclear.o \
-	gos_windget.o gos_sysdraw.o
+	gos_windget.o gos_sysdraw.o gos_dragbox.o
 	$(AR) r $(LIB) obj/gos.o
 	$(AR) r $(LIB) obj/gos_init.o
 	$(AR) r $(LIB) obj/gos_exit.o
@@ -59,6 +59,7 @@ all: obj gos.o gos_init.o gos_exit.o gos_paraprnt.o gos_togglezero.o gos_install
 	$(AR) r $(LIB) obj/gos_windclear.o
 	$(AR) r $(LIB) obj/gos_windget.o
 	$(AR) r $(LIB) obj/gos_sysdraw.o
+	$(AR) r $(LIB) obj/gos_dragbox.o
 
 obj:
 	$(MKDIR) -p obj
@@ -237,6 +238,10 @@ gos_windget.o:
 gos_sysdraw.o:
 	$(CC) -oobj/gos_sysdraw.s gos_sysdraw.c
 	$(AS) -oobj/gos_sysdraw.o obj/gos_sysdraw.s
+
+gos_dragbox.o:
+	$(CC) -oobj/gos_dragbox.s gos_dragbox.c
+	$(AS) -oobj/gos_dragbox.o obj/gos_dragbox.s
 
 clean:
 	$(RM) -rf $(OBJ) $(LIB)

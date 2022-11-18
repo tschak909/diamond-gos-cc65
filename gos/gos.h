@@ -398,3 +398,10 @@ void gos_windget(unsigned char *x, unsigned char *y, unsigned short *rx, unsigne
  * @param s pointer to text buffer terminated with 0xFF.
  */
 void gos_sysdraw(unsigned char x, unsigned char y, unsigned char st, void *s);
+
+/**
+ * @brief Turn mo use cursor/arrow on
+ */
+void gos_dragbox(unsigned char x, unsigned char y, unsigned char w, unsigned char h,
+		 unsigned char *nx, unsigned char *ny, unsigned char *mx, unsigned char *my);
+

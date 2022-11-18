@@ -346,3 +346,10 @@ void gos_defcursor(unsigned char b, unsigned char h, unsigned char f);
  * @param y new position
  */
 void gos_movecursor(unsigned char x, unsigned char y);
+
+/**
+ * @brief Word sized multiply
+ * @param a multiplicand 1
+ * @param b multiplicand 2
+ */
+unsigned short gos_multiply(unsigned short a, unsigned short b);

@@ -451,3 +451,10 @@ void gos_windactivate(unsigned short w);
  * @param s pointer to EOL terminated filename
  */
 void gos_binload(unsigned char d, void *s);
+
+/**
+ * @brief Quickly calculate the address of position on screen.
+ * @param x position
+ * @param y position
+ */
+void gos_mul40(unsigned char x, unsigned char y);

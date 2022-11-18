@@ -353,3 +353,33 @@ void gos_movecursor(unsigned char x, unsigned char y);
  * @param b multiplicand 2
  */
 unsigned short gos_multiply(unsigned short a, unsigned short b);
+
+/**
+ * @brief Word sized divide
+ * @param a numerator
+ * @param b denominator
+ * @return demoninator in lower 16 bits, remainder in upper 16 bits.
+ */
+unsigned long gos_divide(unsigned short a, unsigned short b);
+
+/**
+ * @brief Swaps an area on screen with a block image in memory
+ * @param a Address of image data
+ * @param x position
+ * @param y position
+ * @param w width
+ * @param h height
+ * @param cx clipping X region
+ * @param cy clipping Y region
+ * @param xo X offset
+ * @param yo Y offset
+ */
+unsigned char gos_swapscreen(unsigned long a,
+			     unsigned char x,
+			     unsigned char y,
+			     unsigned char w,
+			     unsigned char h,
+			     unsigned char cx,
+			     unsigned char cy,
+			     unsigned char xo,
+			     unsigned char yo);

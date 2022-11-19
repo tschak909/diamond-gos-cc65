@@ -8,3 +8,4 @@ gos contains the C binding.
 
 * hello - Uses gos_parprnt to display message, waiting for keypress using CC65 conio.
 * hello2 - Open empty window, close button closes window and program
+* helloacc - Desk accessory, needs debugging. please help.

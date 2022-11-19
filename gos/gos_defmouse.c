@@ -14,6 +14,6 @@
  */
 void gos_defmouse(void *buf)
 {
-  W0=buf;
+  W0=(unsigned short)buf;
   gos(13);
 }

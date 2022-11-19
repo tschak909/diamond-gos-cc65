@@ -29,6 +29,6 @@ void gos_installicon(unsigned char icon_num,
   B2=y;
   B3=w;
   B4=h;
-  W0=buf;
+  W0=(unsigned short)buf;
   gos(4);
 }

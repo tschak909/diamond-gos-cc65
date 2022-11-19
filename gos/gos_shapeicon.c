@@ -18,6 +18,6 @@ void gos_shapeicon(unsigned char icon_num,
 		   void *buf)
 {
   B0=icon_num;
-  W0=buf;
+  W0=(unsigned short)buf;
   gos(7);
 }

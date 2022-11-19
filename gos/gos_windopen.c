@@ -40,8 +40,8 @@ void gos_windopen(unsigned char caps,
   B3=w;
   B4=h;
   B5=b;
-  W0=t;
-  W1=s;
+  W0=(unsigned short)t;
+  W1=(unsigned short)s;
   W2=sw;
   W3=sh;
   W4=a & 0xFFFF;

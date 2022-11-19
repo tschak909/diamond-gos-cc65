@@ -410,9 +410,9 @@ unsigned short gos_multiply(unsigned short a, unsigned short b);
  * @brief Word sized divide
  * @param a numerator
  * @param b denominator
- * @return demoninator in lower 16 bits, remainder in upper 16 bits.
+ * @return result in res, remainder in rem
  */
-unsigned long gos_divide(unsigned short a, unsigned short b);
+void gos_divide(unsigned short a, unsigned short b, unsigned short *res, unsigned short *rem);
 
 /**
  * @brief Swaps an area on screen with a block image in memory

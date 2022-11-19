@@ -15,7 +15,7 @@
  */
 void gos_setmenu(void* menu_bar, void* menu_trees)
 {
-  W0=menu_bar;
-  W1=menu_trees;
+  W0=(unsigned short)menu_bar;
+  W1=(unsigned short)menu_trees;
   gos(8);
 }

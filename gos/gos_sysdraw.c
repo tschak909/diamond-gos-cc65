@@ -17,7 +17,7 @@
  */
 void gos_sysdraw(unsigned char x, unsigned char y, unsigned char st, void *s)
 {
-  W0=s;
+  W0=(unsigned short)s;
   B1=x;
   B2=y;
   B3=st;

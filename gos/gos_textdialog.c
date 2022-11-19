@@ -33,8 +33,8 @@ void gos_textdialog(unsigned char maxlen,
   B4=exit;
   B5=x;
   B6=y;
-  W0=s;
-  W1=f;
-  W2=e;
+  W0=(unsigned short)s;
+  W1=(unsigned short)f;
+  W2=(unsigned short)e;
   gos(18);
 }

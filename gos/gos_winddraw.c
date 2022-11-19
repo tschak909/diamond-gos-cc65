@@ -14,6 +14,6 @@
  */
 void gos_winddraw(void *objects)
 {
-  W7=objects;
+  W7=(unsigned short)objects;
   gos(22);
 }

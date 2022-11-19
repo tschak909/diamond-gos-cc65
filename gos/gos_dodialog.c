@@ -19,7 +19,7 @@ void gos_dodialog(unsigned char w, unsigned char h, void *objects, void *areas)
 {
   B0=w;
   B1=h;
-  W0=objects;
-  W1=areas;
+  W0=(unsigned short)objects;
+  W1=(unsigned short)areas;
   gos(14);
 }

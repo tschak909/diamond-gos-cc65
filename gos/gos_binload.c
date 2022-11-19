@@ -16,6 +16,6 @@
 void gos_binload(unsigned char d, void *s)
 {
   B0=d;
-  W0=s;
+  W0=(unsigned short)s;
   gos(53);
 }

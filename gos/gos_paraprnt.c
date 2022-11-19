@@ -35,6 +35,6 @@ void gos_paraprnt(unsigned short x,
   W2=y;
   W3=xc;
   W4=yc;
-  W5=s;
+  W5=(unsigned short)s;
   gos(2);
 }

@@ -12,18 +12,13 @@
  * @brief Word sized divide
  * @param a numerator
  * @param b denominator
- * @return demoninator in lower 16 bits, remainder in upper 16 bits.
+ * @return demoninator in d, remainder in r
  */
-unsigned long gos_divide(unsigned short a, unsigned short b)
+void gos_divide(unsigned short a, unsigned short b, unsigned short *res, unsigned short *rem)
 {
-  unsigned long r;
-  
   W4=a;
   W5=b;
   gos(40);
-
-  r  = W6 & 0xFFFF;
-  r |= (long)(W7 << 16);
-  
-  return r;
+  *res=W6;
+  *rem=W7;
 }

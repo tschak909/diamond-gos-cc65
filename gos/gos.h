@@ -26,6 +26,13 @@
 #define B6 (*(unsigned char *)0x96)
 #define B7 (*(unsigned char *)0x97)
 
+/* Window characteristics */
+#define SIZER 1
+#define HORIZONTAL 2
+#define VERTICAL 4
+#define DRAG 8
+#define FULLER 16
+
 /**
  * @var SCREENX - Mouse cursor X position, 0-159
  */ 
@@ -76,8 +83,154 @@
  */
 #define INTERRUPTS (*(unsigned char *)0x9A92)
 
+/**
+ * @var EVENT - Event data
+ */
+typedef unsigned char Event[8];
+#define EVENT (*(Event *)0x9A93)
 
+/**
+ * @var EVENTTYPE - Last Event
+ */
+#define EVENTTYPE (*(unsigned char *)0x9A93)
 
+/**
+ * @var EVENTTYPE2
+ */
+#define EVENTTYPE2 (*(unsigned char *)0x9A94)
+
+/**
+ * @var EVENTTYPE3
+ */
+#define EVENTTYPE3 (*(unsigned char *)0x9A95)
+
+/**
+ * @var EVENTTYPE4
+ */
+#define EVENTTYPE4 (*(unsigned char *)0x9A96)
+
+/**
+ * @var EVENTTYPE5
+ */
+#define EVENTTYPE5 (*(unsigned char *)0x9A97)
+
+/**
+ * @var SYSFONT address of system font
+ */
+#define SYSFONT (*(unsigned short *)0x9A98)
+
+/**
+ * @var NUMFONTS not used
+ */
+#define NUMFONTS (*(unsigned char *)0x9A9A)
+
+/**
+ * @var RESETVEC saving DOSINI and DOSVEC here
+ */
+#define RESETVEC (*(unsigned long *)0x9A9B)
+
+/**
+ * @var DRIVES Map of drive letters to units
+ */
+typedef unsigned char Drives[7];
+#define DRIVES (*(Drives *)0x9A9F)
+
+/**
+ * @var DEFAULTDRIVE specify default drive to save desktop config
+ */
+#define DEFAULTDRIVE (*(unsigned char *)0x9AA6)
+
+/**
+ * @var MOUSEVEC pointer to VBI vector for the mouse.
+ */
+#define MOUSEVEC (*(unsigned short *)0x9AA7)
+
+/**
+ * @var DLIMOUSEVEC
+ */
+#define DLIMOUSEVEC (*(unsigned short *)0x9AA9)
+
+/**
+ * @var XOFFSET Mouse current X offset, relative to current 8x8 cell.
+ */
+#define XOFFSET (*(unsigned char *)0x9AAB)
+
+/**
+ * @var YOFFSET Mouse current Y offset, relative to current 8x8 cell.
+ */
+#define YOFFSET (*(unsigned char *)0x9AAC)
+
+/**
+ * @var MOUSESHAPE 8 bytes of mouse bitmap data (8x8)
+ */
+typedef unsigned char MouseShape[8];
+#define MOUSESHAPE (*(MouseShape *)0x9AAD)
+
+/**
+ * @var EXTRA pointer to first byte of extra memory.
+ */
+#define EXTRA (*(unsigned long *)0x9AB5)
+
+/**
+ * @var DESKTOPEXEC pointer to first byte of extra memory.
+ */
+#define DESKTOPEXEC (*(unsigned short *)0x9AB9)
+
+/**
+ * @var REZ Current desktop resolution 0 = hires, 1 = lores
+ */
+#define REZ (*(unsigned char *)0x9ABB)
+
+/**
+ * @var DOSTYPE $18 = Dos 2.x, $38 = SpartaDOS
+ */
+#define DOSTYPE (*(unsigned char *)0x9ABC)
+
+/**
+ * @var SPARTAFLAG $00 = DOS XE, $01 = SpartaDOS
+ */
+#define SPARTAFLAG (*(unsigned char *)0x9ABD)
+
+/**
+ * @var BANK Current active Diamond GOS bank
+ */
+#define BANK (*(unsigned char *)0x9ABE)
+
+/**
+ * @var CMDLINE 32-byte command line buffer
+ */
+typedef unsigned char CommandLine[32];
+#define CMDLINE (*(CommandLine *)0x9ABF)
+
+/**
+ * @var BACKFILL The back-fill patterm
+ */
+#define BACKFILL (*(unsigned char *)0x9AE0)
+
+/**
+ * @var DELAY Keyboard repeat delay in 1/60ths sec values
+ */
+#define DELAY (*(unsigned char *)0x9AE1)
+
+/**
+ * @var REPEATDELAY repeat delay in 1/60ths sec after DELAY
+ */
+#define REPEATDELAY (*(unsigned char *)0x9AE2)
+
+/**
+ * @var SOLIDCOLOR The color diamond should default to for solid objs
+ */
+#define SOLIDCOLOR (*(unsigned char *)0x9AE3)
+
+/**
+ * @var CLEARCOLOR The color diamond should default to for clear objs
+ */
+#define CLEARCOLOR (*(unsigned char *)0x9AE4)
+
+/**
+ * @var BACKCOLOR The background color for Monochrome mode
+ */
+#define BACKCOLOR (*(unsigned char *)0x9AE5)
 /**
  * @brief call GOS with Function #
  * @param funcno Function #
@@ -546,3 +699,8 @@ char* gos_fileselect(char *ext, char *def, char *title, char *filename, char *di
  * @return 0=OK, 1=Cancel
 */
 unsigned char gos_messagebox(void *icon, char *s, unsigned char t);
+
+/**
+ * @brief Check the GOS environment to see if any events have occurred. One iteration of event loop.
+ */
+void gos_event(void);

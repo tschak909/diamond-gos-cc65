@@ -19,9 +19,9 @@ void main(void)
     {
       gos_event();
 
-      if ( EVENTTYPE == 2 ) // window
+      if ( EVENT[0] == 2 ) // window
 	{
-	  if ( EVENTTYPE2 == 1 ) // closed
+	  if ( EVENT[1] == 1 ) // closed
 	    {
 	      gos_windclose();
 	      break;

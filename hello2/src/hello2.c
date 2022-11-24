@@ -7,7 +7,7 @@
 void main(void)
 {
   gos_init(0);
-  gos_windopen(SIZER|HORIZONTAL|VERTICAL|DRAG|FULLER,
+  gos_windopen(ADD_SIZER|ADD_HORIZONTAL|ADD_VERTICAL|ADD_DRAG|ADD_FULLER,
 	       0,8,
 	       39,183,
 	       0,
@@ -19,9 +19,9 @@ void main(void)
     {
       gos_event();
 
-      if ( EVENT[0] == 2 ) // window
+      if ( EVENTTYPE == WINDOW ) // window
 	{
-	  if ( EVENT[1] == 1 ) // closed
+	  if ( EVENT.Window.type == CLOSER ) // closed
 	    {
 	      gos_windclose();
 	      break;

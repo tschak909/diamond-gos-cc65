@@ -27,11 +27,11 @@
 #define B7 (*(unsigned char *)0x97)
 
 /* Window characteristics */
-#define SIZER 1
-#define HORIZONTAL 2
-#define VERTICAL 4
-#define DRAG 8
-#define FULLER 16
+#define ADD_SIZER 1
+#define ADD_HORIZONTAL 2
+#define ADD_VERTICAL 4
+#define ADD_DRAG 8
+#define ADD_FULLER 16
 
 /**
  * @var SCREENX - Mouse cursor X position, 0-159
@@ -84,20 +84,82 @@
 #define INTERRUPTS (*(unsigned char *)0x9A92)
 
 /**
- * @var EVENT - Event data
- */
-typedef unsigned char Event[8];
-#define EVENT (*(Event *)0x9A93)
-
-/**
  * @var EVENTTYPE - Last Event
  */
-#define EVENTTYPE (*(unsigned char *)0x9A93)
+
+typedef enum _event_type
+  {
+    EVENT_NOP,
+    ICON,
+    WINDOW,
+    MENU,
+    KEY,
+    BACKGROUND
+  } EventType;
+
+#define EVENTTYPE (*(EventType *)0x9A93)
 
 /**
- * @var EVENTTYPE2
+ * @var The event structure
  */
-#define EVENTTYPE2 (*(unsigned char *)0x9A94)
+
+typedef union _event
+{
+  struct _Icon
+  {
+    unsigned char number; /* Icon Number 0-31 */
+    unsigned char rsvd1;  /* not used */
+    unsigned char rsvd2;
+    unsigned char rsvd3;
+    unsigned char rsvd4;
+  } Icon;
+  
+  struct _Window
+  {
+    enum _window_event_type
+      {
+	NONE,
+	CLOSER,
+	FULLER,
+	DRAGGED,
+	SIZED,
+	SLIDE_X,
+	SLIDE_Y,
+	IN_WINDOW,
+	NEW_WINDOW
+      } type;
+    unsigned char x; /* X (0-39) */
+    unsigned char y; /* Y (0-191) */
+    unsigned char rsvd1;
+    unsigned char rsvd2;
+  } Window;
+
+  struct _Menu
+  {
+    unsigned char menu; /* Menu # */
+    unsigned char item; /* Item # */
+    unsigned char rsvd1;
+    unsigned char rsvd2;
+  } Menu;
+
+  struct _Keypress
+  {
+    unsigned char key; /* key pressed # */
+    unsigned char rsvd1;
+    unsigned char rsvd2;
+    unsigned char rsvd3;
+  } Keypress;
+
+  struct _Background /* Background clicked */
+  {
+    unsigned char x;
+    unsigned char y;
+    unsigned char rsvd1;
+    unsigned char rsvd2;
+  } Background;
+} Event;
+
+#define EVENT (*(Event *)0x9A94)
 
 /**
  * @var EVENTTYPE3

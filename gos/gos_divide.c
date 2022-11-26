@@ -12,7 +12,7 @@
  * @brief Word sized divide
  * @param a numerator
  * @param b denominator
- * @return demoninator in d, remainder in r
+ * @return denominator in d, remainder in r
  */
 void gos_divide(unsigned short a, unsigned short b, unsigned short *res, unsigned short *rem)
 {

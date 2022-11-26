@@ -1,3 +1,5 @@
 *.APP
 *.map
 gos/gos.lib
+html/
+latex/

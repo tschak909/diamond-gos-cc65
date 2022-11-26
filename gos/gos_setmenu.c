@@ -9,7 +9,7 @@
 #include "gos.h"
 
 /**
- * @brief Initalizes a new menu bar for Diamond
+ * @brief Initializes a new menu bar for Diamond
  * @param menu_bar Address of Menu Bar
  * @param menu_tree Address of menu trees
  */

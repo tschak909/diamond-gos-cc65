@@ -358,14 +358,14 @@ void gos_removeicon(unsigned char icon_num);
 void gos_shapeicon(unsigned char icon_num, void *buf);
 
 /**
- * @brief Initalizes a new menu bar for Diamond
+ * @brief Initializes a new menu bar for Diamond
  * @param menu_bar Address of Menu Bar
  * @param menu_tree Address of menu trees
  */
 void gos_setmenu(void* menu_bar, void* menu_trees);
 
 /**
- * @brief Inert or reomve a check from a menu item (can also place characters other than checks next to menu items)
+ * @brief Insert or remove a check from a menu item (can also place characters other than checks next to menu items)
  * @param menu_number (0-7)
  * @param menu_item (1-22)
  * @param c character to insert (0=Blank, 8=Check)

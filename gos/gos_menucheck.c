@@ -9,7 +9,7 @@
 #include "gos.h"
 
 /**
- * @brief Inert or reomve a check from a menu item (can also place characters other than checks next to menu items)
+ * @brief Insert or remove a check from a menu item (can also place characters other than checks next to menu items)
  * @param menu_number (0-7)
  * @param menu_item (1-22)
  * @param c character to insert (0=Blank, 8=Check)

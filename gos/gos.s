@@ -5,6 +5,4 @@
 	.export _gos
 
 	;; Function # in A
-_gos:	JSR $8E00
-	RTS
-	
+_gos:	JMP $8E00
